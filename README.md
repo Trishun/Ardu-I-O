@@ -26,7 +26,10 @@ Ardu I/O oparty jest o:
 
 ### Instalacja
 
-Do uruchomienia modułu konieczne jest pobranie sterowników ze strony [projektu] [ard], jak również wsparcie dla języka python.
+Do uruchomienia modułu konieczne jest:
+- pobranie sterowników do Arduino ze strony [projektu] [ard]
+- interpreter języka python
+
 Kody programów są umieszczone [w repozytorium GitHub][git].
 
 
@@ -38,7 +41,7 @@ Główne okno programu posiada siedem przycisków:
 * Połącz/rozłącz
   - służy do otwarcia/zamknięcia połączenia między komputerem a kontrolerem z prędkością 9600 bps
 * Synchronizacja czasu
-  - słuzy do synchronizacji czasu kontrolera. Domyślnie 0:00:00 1 STY 1970 
+  - służy do synchronizacji czasu kontrolera. Domyślnie 0:00:00 1 STY 1970 
 * Dioda RGB
   - zmiana koloru diody RGB w cyklu R->G->B->OFF
 * Zapis na pin cyfrowy
