@@ -35,20 +35,20 @@ Kody programów są umieszczone [w repozytorium GitHub][git].
 ###### Aby uruchomić główne okno programu należy podłączyć moduł.
 
 Główne okno programu posiada siedem przycisków:
-1. Połącz/rozłącz
-  * służy do otwarcia/zamknięcia połączenia między komputerem a kontrolerem z prędkością 9600 bps
-2. Synchronizacja czasu
-  * słuzy do synchronizacji czasu kontrolera. Domyślnie 0:00:00 1 STY 1970 
-3. Dioda RGB
-  * zmiana koloru diody RGB w cyklu R->G->B->OFF
-4. Zapis na pin cyfrowy
-  * wskazanie pinu do zmiany jego stanu
-5. Sygnał modulowany
-  * podanie sygnału modulowanego na wybrany port PWM; porty są od siebie niezależne
-6. Ręczne ustawienie koloru diody
-  * możliwość ręcznego dostosowania koloru przy pomocy trzech suwaków
-7. Odczyt z pinu analogowego
-  * wskazanie pinu analogowego do odczytu wartości
+* Połącz/rozłącz
+  - służy do otwarcia/zamknięcia połączenia między komputerem a kontrolerem z prędkością 9600 bps
+* Synchronizacja czasu
+  - słuzy do synchronizacji czasu kontrolera. Domyślnie 0:00:00 1 STY 1970 
+* Dioda RGB
+  - zmiana koloru diody RGB w cyklu R->G->B->OFF
+* Zapis na pin cyfrowy
+  - wskazanie pinu do zmiany jego stanu
+* Sygnał modulowany
+  - podanie sygnału modulowanego na wybrany port PWM; porty są od siebie niezależne
+* Ręczne ustawienie koloru diody
+  - możliwość ręcznego dostosowania koloru przy pomocy trzech suwaków
+* Odczyt z pinu analogowego
+  - wskazanie pinu analogowego do odczytu wartości
 
 Polecenia wydawane poprzez interfejs są wykonywane przez kontroler. Wprowadzone komendy są wyświetlane na wbudowanym wyświetlaczu LCD.
 
