@@ -58,8 +58,8 @@ Polecenia wydawane poprzez interfejs są wykonywane przez kontroler. Wprowadzone
 
 ### Rozwój
 
-Twórcy wsparciem nie pogardzą. 
-Najbliższe cele:
+Twórcy będą wdzięczni za wszelkie wsparcie. 
+Najbliższe cele to:
 - poprawa jakości grafiki
 - stopinowe zmniejszanie liczby błędów
 
