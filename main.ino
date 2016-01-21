@@ -41,7 +41,9 @@ void setup() {
   saver = t.after(10000, screenSaver);
   lcd.begin(16, 2);
   lcd.setCursor(1, 0);
-  lcd.print("hello, world!");
+  lcd.print("Inicjalizacja");
+  lcd.setCursor(1, 1);
+  lcd.print("systemu...");
   napis = "";
 
   pinMode(A0, INPUT);
@@ -90,6 +92,8 @@ void printDigits(int digits) {
 }
 //////////////////////////////////////   OUTPUT
 void printuj() {
+  lcd.print("Odczyt z A");
+  lcd.print(nowyNapis);
   Serial.println(analogRead(nowyNapis.toInt()));
 }
 
@@ -187,10 +191,16 @@ void loop() {
           digitalWrite(latchPin, LOW);
           shiftOut(dataPin, clockPin, MSBFIRST, 0);
           digitalWrite(latchPin, HIGH);
+          for (int i = 0; i < 8; i++) {
+            on[i] = 0;
+          }
         } else if (value == "ON") {
           digitalWrite(latchPin, LOW);
           shiftOut(dataPin, clockPin, MSBFIRST, 255);
           digitalWrite(latchPin, HIGH);
+          for (int i = 0; i < 8; i++) {
+            on[i] = 1;
+          }
         } else {
           if (on[value.toInt()] == 0) {
             on[value.toInt()] = 1;
@@ -200,9 +210,19 @@ void loop() {
           toggleLED();
         }
       }
-      lcd.print(napis);
+      lcd.print("Zmiana pinu");
       lcd.print(' ');
       lcd.print(value);
+      lcd.setCursor(0, 1);
+      for (int i = 0; i < 8; i++) {
+        if (on[i] == 1) {
+          lcd.print('X');
+          lcd.print(' ');
+        } else {
+          lcd.print('O');
+          lcd.print(' ');
+        }
+      }
       napis = "";
       value = "";
       valueInput = 0;
@@ -215,45 +235,72 @@ void loop() {
       if (napis == "RED") {
         if ( value == "SIN") {
           rSINRun();
+          lcd.print("Sygnal");
+          lcd.setCursor(1, 1);
+          lcd.print("modulowany (R)");
         } else if (value == "ON") {
           t.stop(rSin);
+          lcd.print("Wlacz czerwony");
           analogWrite(rLED, 255);
           analogWrite(gLED, 0);
           analogWrite(bLED, 0);
         } else if (value == "OFF") {
+          lcd.print("Wylacz czerwony");
           t.stop(rSin);
           analogWrite(rLED, 0);
-        }else{
+        } else {
+          lcd.print("Ustaw czerwony");
+          lcd.setCursor(1, 1);
+          lcd.print("na");
+          lcd.print(value);
           t.stop(rSin);
           analogWrite(rLED, value.toInt());
         }
       } else if (napis == "GREEN") {
         if ( value == "SIN") {
           gSINRun();
+          lcd.print("Sygnal");
+          lcd.setCursor(1, 1);
+          lcd.print("modulowany (G)");
         } else if (value == "ON") {
+          lcd.print("Wlacz zielony");
           t.stop(gSin);
           analogWrite(rLED, 0);
           analogWrite(gLED, 255);
           analogWrite(bLED, 0);
         } else if (value == "OFF") {
+          lcd.print("Wylacz zielony");
           t.stop(gSin);
           analogWrite(gLED, 0);
-        } else{
+        } else {
+          lcd.print("Ustaw zielony");
+          lcd.setCursor(1, 1);
+          lcd.print("na");
+          lcd.print(value);
           t.stop(gSin);
           analogWrite(gLED, value.toInt());
         }
-      }else if (napis == "BLUE") {
+      } else if (napis == "BLUE") {
         if ( value == "SIN") {
           bSINRun();
+          lcd.print("Sygnal");
+          lcd.setCursor(1, 1);
+          lcd.print("modulowany (B)");
         } else if (value == "ON") {
+          lcd.print("Wlacz niebieski");
           t.stop(bSin);
           analogWrite(rLED, 0);
           analogWrite(gLED, 0);
           analogWrite(bLED, 255);
         } else if (value == "OFF") {
+          lcd.print("Wylacz niebieski");
           t.stop(bSin);
           analogWrite(bLED, 0);
-        } else{
+        } else {
+          lcd.print("Ustaw niebieski");
+          lcd.setCursor(1, 1);
+          lcd.print("na");
+          lcd.print(value);
           t.stop(bSin);
           analogWrite(bLED, value.toInt());
         }
@@ -263,10 +310,18 @@ void loop() {
       valueInput = 0;
       saver = t.after(10000, screenSaver);
     } else if (z == '$') { ///////////// GET
+      t.stop(saver);
+      t.stop(saver2);
+      lcd.clear();
       t.after(200, printuj);
       nowyNapis = napis;
       napis = "";
+      saver = t.after(10000, screenSaver);
     } else if (z == '@') { /////////////  TIME
+      lcd.clear();
+      lcd.print("Ustawiono godzine");
+      lcd.setCursor(1, 1);
+      lcd.print("i date");
       setTime(napis.toInt());
       napis = "";
     } else if (z == ' ') {
