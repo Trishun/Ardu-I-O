@@ -1,3 +1,5 @@
+#[PL]
+
 # Interfejs graficzny Ardu I/O
 
 Interfejs graficzny Ardu I/O służy podstawowej obsłudze portów wyjść i wejść przy pomocy programu na komputery klasy PC oraz transmisji szeregowej pomiędzy komputerem a mikrokontrolerem Arduino.
