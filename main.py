@@ -433,6 +433,14 @@ class Application(Frame):
 
         self.f2 = Frame(self, height=40, width=500)
         self.f2.pack(side="bottom")
+        #######################################################
+        self.bPolRoz= Button(self.bcontainer, text="Polącz/Rozłącz",height=3)
+        self.bPolRoz["command"] = self.pol_roz
+        self.bPolRoz.pack(side="left")
+        ######################################################
+        self.bSynCzas= Button(self.bcontainer, text="Synchronizacja Czasu",height=3)
+        self.bSynCzas["command"] = self.syn_czas
+        self.bSynCzas.pack(side="left")
         ###################################
         """ parametry wejsciowe funkcji dioda_rgb"""
 
@@ -442,12 +450,12 @@ class Application(Frame):
 
         ###################################
         """ parametry wejsciowe funkcji funkcja1"""
-        self.bfunkcja2 = Button(self.bcontainer,text="Wpisz numer pinu",height=3)
+        self.bfunkcja2 = Button(self.bcontainer,text="Zmiana stanu",height=3)
         self.bfunkcja2["command"] = self.entry
         self.bfunkcja2.pack(side="left")
         ###################################
         """ parametry wejsciowe funkcji Dioda Sinus"""
-        self.bsinus = Button(self.bcontainer,text="Dioda Sinus",height=3)
+        self.bsinus = Button(self.bcontainer,text="Sygnał modulowany",height=3)
         self.bsinus["command"] = self.sinus
         self.bsinus.pack(side="left")
         #######################################################
@@ -455,16 +463,9 @@ class Application(Frame):
         self.bRgbScale= Button(self.bcontainer, text="Kolor diody",height=3)
         self.bRgbScale["command"] = self.dioda_suwaki
         self.bRgbScale.pack(side="left")
-        #######################################################
-        self.bPolRoz= Button(self.bcontainer, text="Polącz/Rozłącz",height=3)
-        self.bPolRoz["command"] = self.pol_roz
-        self.bPolRoz.pack(side="left")
-        ######################################################
-        self.bSynCzas= Button(self.bcontainer, text="Synchronizacja Czasu",height=3)
-        self.bSynCzas["command"] = self.syn_czas
-        self.bSynCzas.pack(side="left")
+
         #####################################################
-        self.bOdczPin= Button(self.bcontainer, text="Odczyt Z Pinu",height=3)
+        self.bOdczPin= Button(self.bcontainer, text="Odczyt z pinu",height=3)
         self.bOdczPin["command"] = self.odczyt_pin
         self.bOdczPin.pack(side="left")
         
