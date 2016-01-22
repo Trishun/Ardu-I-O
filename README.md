@@ -90,7 +90,7 @@ Schemat graficzny znajduje się w [bibliotece Fritzing][frt].
 [Jakub Borówka][JB]
 
 @GitHub:
-_github.com/Trishun/Ardu-I-O_
+[_github.com/Trishun/Ardu-I-O_][git]
 
 
    [arduino]: <https://www.arduino.cc/>
