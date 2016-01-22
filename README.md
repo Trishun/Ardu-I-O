@@ -85,8 +85,10 @@ Schemat graficzny znajduje się w [bibliotece Fritzing][frt].
  - Brak automatycznej synchronizacji czasu
 
 #### Kontakt
-[Piotr Dec][PD]\
-[Jakub Borówka][JB]\
+[Piotr Dec][PD]
+
+[Jakub Borówka][JB]
+
 @GitHub:
 _github.com/Trishun/Ardu-I-O_
 
