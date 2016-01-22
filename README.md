@@ -76,7 +76,7 @@ Schemat graficzny znajduje się w [bibliotece Fritzing][frt].
 - wyświetlacz LCD 2X16
 - dioda RGB
 - 8x dioda jednokolorowa
-- 12x opornik 220 $$\Omega$$
+- 12x opornik 220 ohm
 - potencjometr
 
 #### Znane błędy
