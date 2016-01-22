@@ -84,6 +84,12 @@ Schemat graficzny znajduje się w [bibliotece Fritzing][frt].
  - Brak obsługi wyjątków
  - Brak automatycznej synchronizacji czasu
 
+#### Kontakt
+[Piotr Dec][PD]\
+[Jakub Borówka][JB]\
+@GitHub:
+_github.com/Trishun/Ardu-I-O_
+
 
    [arduino]: <https://www.arduino.cc/>
    [python]: <https://www.python.org/>
@@ -92,6 +98,5 @@ Schemat graficzny znajduje się w [bibliotece Fritzing][frt].
    [ard]: <https://www.arduino.cc/en/Main/Software>
    [git]:  <https://github.com/Trishun/Ardu-I-O.git>
    [frt]: <http://fritzing.org/projects/ardu-io>
-   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-
-
+   [PD]: <mailto:piotr.dec@smcebi.edu.pl>
+   [JB]: <mailto:jakub.borowka@smcebi.edu.pl>
