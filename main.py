@@ -1,8 +1,6 @@
 import ArduinoSerial
 from Tkinter import *
 import time
-# zrobic z 3 suwakami na kolor diody
-# zrobic odstepy pomiedzy guzikami
 
 class Application(Frame):
 
@@ -21,26 +19,17 @@ class Application(Frame):
         self.sinButtonBlue = 0
         self.AS = ArduinoSerial.ArduinoSerial(3)
 
-
     def get_scale(self,event):
-        #### 3 wartości suwaków ####
+        """Scales values"""
         scaleR = self.scaleR.get()
         scaleG = self.scaleG.get()
         scaleB = self.scaleB.get()
-        #### tu dajesz kod ###
         self.AS.led('RED %i' %(scaleR))
         self.AS.led('GREEN %i' %(scaleG))
         self.AS.led('BLUE %i' %(scaleB))
 
-
-
-        ######################
-##        print scaleR,scaleG,scaleB
-
-
     def dioda_rgb(self):
-        #### po nacisnieciu guzika zmienia się kolor przycisku ####
-        """ Zmiana 3 kolorów diody"""
+        """RGB switcher"""
         if self.entryNum > 0:
             self.dis_enter_text()
             self.entryNum = 0
@@ -60,84 +49,42 @@ class Application(Frame):
         self.bfunkcja2["bg"] = "#dadada"
         self.bsinus["bg"] = "#dadada"
         self.bfunkcja1["bg"] = "#dadada"
-
         if self.bfunkcja1["fg"] == "black":
-            ### Po nacisnieciu guzika który jest czarny zmiania kolor napisu na czerwony ###
+            # off to red
             self.bfunkcja1["fg"] = "red"
-            #### tu dajesz kod ###
             self.AS.led('RED ON')
-
-
-
-
-            ######################
         elif self.bfunkcja1["fg"] == "red":
-            ### Po nacisnieciu guzika który jest czerwony zmiania kolor napisu na zielony ###
+            # red to green
             self.bfunkcja1["fg"] = "green"
-            #### tu dajesz kod ###
             self.AS.led('GREEN ON')
-
-
-
-
-            ######################
-
         elif self.bfunkcja1["fg"] == "green":
-            ### Po nacisnieciu guzika który jest zielony zmiania kolor napisu na niebieski ###
-
+            # green to blue
             self.bfunkcja1["fg"] = "blue"
-            #### tu dajesz kod ###
             self.AS.led('BLUE ON')
-
-
-
-            ######################
-
         elif self.bfunkcja1["fg"] == "blue":
-            ### Po nacisnieciu guzika który jest niebieski zmiania kolor napisu na czarny ###
-
+            # blue to off
             self.bfunkcja1["fg"] = "black"
-            #### tu dajesz kod ###
             self.AS.led('BLUE OFF')
 
-
-
-            ######################
-
-
-
     def entryget(self):
-        # funkcja odnosi sie do guzika "Wypisz numer pinu" i działa
-        # po nacisnieciu enter. zwraca wpisaną wartość
-        #### tu dajesz kod ###
-
+        """send input"""
         self.AS.write('TOGGLE %s' %(self.entry1.get()))
 
-
-        ######################
     def entry2get(self):
-        #odnosi sie do guzka "odczyt z pinu" i dizała
-        # po nacisnieciu enter. zwraca wpisaną wartość
+        """read from analog port"""
         if self.frameF7 >0:
             self.f7.pack_forget()
             self.frameF7 = 0
-
         self.f7 = Frame(self.f6, height=10, width=32,pady=30)
         self.f7.pack()
         self.frameF7 +=1
-
         self.labelentry2 = Label(self.f7,height=1,text=self.AS.read(self.entry2.get()) )
         self.labelentry2.pack()
-        #### tu dajesz kod ###
 
-##        value = self.AS.read(self.entry2.get())
-
-        ######################
-
-    ####################################################################
+####################################################################
 
     def pol_roz(self):
-        # działa po naciśnieciu guzika "Połącz/Rozłącz"
+        """connect/disconnect"""
         if self.entryNum > 0:
             self.dis_enter_text()
             self.entryNum = 0
@@ -157,17 +104,10 @@ class Application(Frame):
         self.bfunkcja2["bg"] = "#dadada"
         self.bsinus["bg"] = "#dadada"
         self.bfunkcja1["bg"] = "#dadada"
-        #### tu dajesz kod ###
         self.AS.toogle
 
-
-
-        ######################
-
-
     def syn_czas(self):
-        # działa po naciśnieciu guzika "synchronizacja czasu"
-
+        """time sync"""
         if self.entryNum > 0:
             self.dis_enter_text()
             self.entryNum = 0
@@ -190,65 +130,39 @@ class Application(Frame):
         self.AS._set_datetime
 
     def sinus_red(self):
-        # działa po naciśnięciu "Dioda sinus" a potem guzika "red"
-        #### tu dajesz kod ###
+        """modulation on red PWM"""
         if self.sinButtonRed == 0:
-            #włączenie sinusa
             self.sinButtonRed += 1
             print "on"
             self.AS.led('RED SIN')
         else:
-            #wyłączenie sinusa
             self.sinButtonRed -= 1
             print "off"
             self.AS.led('RED OFF')
 
-
-
-
-        ######################
-
-
-
     def sinus_green(self):
-        # działa po naciśnięciu "Dioda sinus" a potem guzika "green"
-        #### tu dajesz kod ###
+        """modulation on green PWM"""
         if self.sinButtonGreen == 0:
-            #włączenie sinusa
             self.sinButtonGreen += 1
             print "on"
             self.AS.led('GREEN SIN')
         else:
-            #wyłączenie sinusa
             self.sinButtonGreen -= 1
             print "off"
             self.AS.led('GREEN OFF')
 
-
-
-
-        ######################
-
     def sinus_blue(self):
-        # działa po naciśnięciu "Dioda sinus" a potem guzika "blue"
-
-        #### tu dajesz kod ###
+        """modulation on blue PWM"""
         if self.sinButtonBlue == 0:
-            #włączenie sinusa
             self.sinButtonBlue += 1
             print "on"
             self.AS.led('BLUE SIN')
         else:
-            #wyłączenie sinusa
             self.sinButtonBlue -= 1
             print "off"
             self.AS.led('BLUE OFF')
 
-
-
-        ######################
-
-    ############## te są do działania guzików . Nic tu nie rób ########
+## Buttons
     def dis_enter_text(self):
         self.f3.pack_forget()
 
@@ -297,10 +211,8 @@ class Application(Frame):
             self.buttonEnter2 ["command"] = self.entry2get
             self.buttonEnter2.pack()
 
-
-
     def sinus(self):
-        ### do pokazania guzików red green blue. Nic nie rób ###
+        """RGB button"""
         if self.scaleNum > 0:
             self.dis_scale()
             self.scaleNum = 0
@@ -317,30 +229,25 @@ class Application(Frame):
         self.bfunkcja2["bg"] = "#dadada"
         self.bsinus["bg"] = "#0b0"
         self.bfunkcja1["bg"] = "#dadada"
-
         if self.sinusNum > 0:
             pass
         else:
             self.sinusNum +=1
             self.f5 = Frame(self, height=10, width=32,pady=30)
             self.f5.pack()
-
             self.buttonEnter = Button(self.f5,text="Red",height=3)
             self.buttonEnter ["command"] = self.sinus_red
             self.buttonEnter.pack(side="left")
-
             self.buttonEnter = Button(self.f5,text="Green",height=3)
             self.buttonEnter ["command"] = self.sinus_green
             self.buttonEnter.pack(side="left")
-
             self.buttonEnter = Button(self.f5,text="Blue",height=3)
             self.buttonEnter ["command"] = self.sinus_blue
             self.buttonEnter.pack(side="left")
             print "Inicjuję funkcje sinus"
 
     def entry(self):
-        """Do wpisywania numeru pinu"""
-        ### do pokazania pola do wpisywania i guzika enter. W tym nic nie rób ######
+        """Pin input"""
         if self.scaleNum > 0:
             self.dis_scale()
             self.scaleNum = 0
@@ -357,27 +264,22 @@ class Application(Frame):
         self.bfunkcja2["bg"] = "#0b0"
         self.bsinus["bg"] = "#dadada"
         self.bfunkcja1["bg"] = "#dadada"
-
         if self.entryNum > 0:
             pass
         else:
             self.entryNum += 1
             self.f3 = Frame(self, height=10, width=32, pady=30)
             self.f3.pack()
-
             self.labelentry1 = Label(self.f3,text="Numer pinu:")
             self.labelentry1.pack()
-
             self.entry1= Entry(self.f3,width=15)
             self.entry1.pack()
-
             self.buttonEnter = Button(self.f3,text="Enter")
             self.buttonEnter ["command"] = self.entryget
             self.buttonEnter.pack()
 
     def dioda_suwaki(self):
-        #### tu nic nie rób ####
-        """ Do "kolor diody"""
+        """manual RGB"""
         if self.entryNum > 0:
             self.dis_enter_text()
             self.entryNum = 0
@@ -394,7 +296,6 @@ class Application(Frame):
         self.bfunkcja2["bg"] = "#dadada"
         self.bsinus["bg"] = "#dadada"
         self.bfunkcja1["bg"] = "#dadada"
-
         if self.scaleNum > 0:
             pass
         else:
@@ -415,8 +316,7 @@ class Application(Frame):
             self.scaleB.pack(side="left")
 
     def createWidgets(self):
-        #################### Robi guziki. Nic nie rób ######
-        """odstepy i nagłówek"""
+        """header"""
 ##        self.theLabel = Label(self, text='')
 ##        self.theLabel.pack()
 
