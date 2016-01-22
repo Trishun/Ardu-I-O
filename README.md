@@ -69,6 +69,7 @@ Schemat graficzny znajduje się w [bibliotece Fritzing][frt].
 - Piny 0,1 - zarezerwowane na transmisję szeregową
 - Piny 2,3,4 - Rejestr przesuwny 74HC595
 - Piny 5,6,7,8,12,13 - obsługa wyświetlacza graficznego 2X16
+
 ##### Użyte komponenty:
 - Arduino UNO v3
 - rejestr przesuwny 74HC595
