@@ -1,4 +1,4 @@
-#[PL]
+# PL
 
 # Interfejs graficzny Ardu I/O
 
@@ -27,7 +27,7 @@ Ardu I/O oparty jest o:
 ### Instalacja
 
 Do uruchomienia modułu konieczne jest:
-- pobranie sterowników do Arduino ze strony [projektu] [ard]
+- pobranie sterowników do Arduino ze strony [projektu][ard]
 - interpreter języka python
 
 Kody programów są umieszczone [w repozytorium GitHub][git].
